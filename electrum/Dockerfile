@@ -28,7 +28,6 @@ RUN ./configure
 RUN make
 RUN sudo make altinstall
 
-
 # Log in as the application user
 USER safeuser
 # supply password for sudo commands
