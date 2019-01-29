@@ -1,5 +1,5 @@
 #IMAGE BUILD COMMANDS
-FROM python-base
+FROM ubuntu-base
 MAINTAINER Chris Troutner <chris.troutner@gmail.com>
 
 # Log in as the application user
