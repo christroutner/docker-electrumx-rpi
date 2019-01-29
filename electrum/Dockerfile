@@ -20,7 +20,7 @@ RUN sudo cp -d out-shared/libleveldb.so out-shared/libleveldb.so.1 /usr/local/li
 RUN sudo install -o root -m 644 -p out-static/lib* /usr/local/lib/
 
 # Install Python 3.6
-RUN sudo apt-get install build-essential tk-dev libncurses5-dev libncursesw5-dev \
+RUN sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev \
 libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev \
 libexpat1-dev liblzma-dev zlib1g-dev
 
