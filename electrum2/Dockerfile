@@ -8,8 +8,7 @@ RUN echo 'abcd8765' | sudo -S pwd
 WORKDIR /home/safeuser
 
 RUN sudo apt-get install python3-pip
-ARG ELECTRUMX_VERSION=f7371e7a71c90017d4dd60be6272dc868bcbf672
-RUN pip3 install git+git://github.com/kyuupichan/electrumx.git@${ELECTRUMX_VERSION}
+RUN pip3 install git+git://github.com/kyuupichan/electrumx.git
 
 
 
