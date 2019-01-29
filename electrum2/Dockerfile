@@ -7,7 +7,7 @@ USER safeuser
 RUN echo 'abcd8765' | sudo -S pwd
 WORKDIR /home/safeuser
 
-RUN sudo python3 setup.py install
+RUN sudo python3 setup.py -y install
 
 RUN git clone https://github.com/kyuupichan/electrumx.git
 WORKDIR /home/safeuser/electrumx
