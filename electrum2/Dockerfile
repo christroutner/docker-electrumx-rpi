@@ -7,8 +7,10 @@ USER safeuser
 RUN echo 'abcd8765' | sudo -S pwd
 WORKDIR /home/safeuser
 
+# Install pip3
+RUN sudo apt-get install -y python3-pip
 
-
+# Clone and build the electrumx server
 RUN git clone https://github.com/kyuupichan/electrumx.git
 WORKDIR /home/safeuser/electrumx
 RUN sudo python3 setup.py install
