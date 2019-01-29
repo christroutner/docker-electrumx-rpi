@@ -24,12 +24,3 @@ RUN mkdir /home/safeuser/.npm-global
 RUN chown -R safeuser /home/safeuser/.npm-global
 RUN echo "export PATH=~/.npm-global/bin:$PATH" >> /home/safeuser/.profile
 RUN runuser -l safeuser -c "npm config set prefix '~/.npm-global'"
-
-# Log in as the application user
-USER safeuser
-# supply password for sudo commands
-RUN echo 'abcd8765' | sudo -S pwd
-WORKDIR /home/safeuser
-
-# Install python tools
-#RUN sudo apt-get install -y python3-pip python3-setuptools

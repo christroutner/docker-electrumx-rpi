@@ -2,10 +2,6 @@
 FROM ubuntu-base
 MAINTAINER Chris Troutner <chris.troutner@gmail.com>
 
-# Log in as the application user
-USER safeuser
-# supply password for sudo commands
-RUN echo 'abcd8765' | sudo -S pwd
 WORKDIR /home/safeuser
 
 # Install the latest levelDB.
@@ -20,7 +16,7 @@ RUN sudo cp -d out-shared/libleveldb.so out-shared/libleveldb.so.1 /usr/local/li
 RUN sudo install -o root -m 644 -p out-static/lib* /usr/local/lib/
 WORKDIR /home/safeuser
 
-# Install Python 3.6
+# Install Python 3.7
 RUN sudo apt-get install -y build-essential libncurses5-dev libncursesw5-dev \
 libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev \
 libexpat1-dev zlib1g-dev liblzma-dev libffi-dev
@@ -32,6 +28,12 @@ RUN ./configure
 RUN make
 RUN sudo make altinstall
 
+
+# Log in as the application user
+USER safeuser
+# supply password for sudo commands
+RUN echo 'abcd8765' | sudo -S pwd
+WORKDIR /home/safeuser
 
 # Used to give Docker something to chew on, so it doesn't exit.
 COPY dummyapp.js dummyapp.js
