@@ -7,7 +7,7 @@ USER safeuser
 RUN echo 'abcd8765' | sudo -S pwd
 WORKDIR /home/safeuser
 
-RUN sudo apt-get install python3-pip
+RUN sudo apt-get install -y python3-pip
 RUN pip3 install git+git://github.com/kyuupichan/electrumx.git
 
 
