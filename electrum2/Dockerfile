@@ -7,10 +7,20 @@ USER safeuser
 RUN echo 'abcd8765' | sudo -S pwd
 WORKDIR /home/safeuser
 
-RUN sudo apt-get install -y python3-pip
-RUN pip3 install git+git://github.com/kyuupichan/electrumx.git
+RUN sudo python3 setup.py install
 
+RUN git clone https://github.com/kyuupichan/electrumx.git
+WORKDIR /home/safeuser/electrumx
+RUN sudo mkdir /srv/db
 
+# These env vars should be set at run time.
+ENV COIN=BitcoinCashABC
+ENV DB_DIRECTORY=/srv/db
+ENV TCP_PORT=50001
+ENV DONATION_ADDRESS=none
+ENV HOST="0.0.0.0"
+
+EXPOSE 50001
 
 # Used to give Docker something to chew on, so it doesn't exit.
 COPY dummyapp.js dummyapp.js
