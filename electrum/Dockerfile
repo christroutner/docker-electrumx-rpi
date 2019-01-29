@@ -21,8 +21,9 @@ RUN sudo install -o root -m 644 -p out-static/lib* /usr/local/lib/
 
 # Install Python 3.6
 RUN sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev \
-libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev \
-libexpat1-dev zlib1g-dev
+libreadline6-dev
+#libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev 
+#libexpat1-dev zlib1g-dev
 # liblzma-dev
 
 # Used to give Docker something to chew on, so it doesn't exit.
