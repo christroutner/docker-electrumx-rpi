@@ -1,4 +1,4 @@
 #!/bin/bash
-docker container run --name ec-slp -d \
--p 5111:5111 \
-ec-slp
+docker container run --name electrumx -d \
+-p 50001:50001 \
+electrumx
