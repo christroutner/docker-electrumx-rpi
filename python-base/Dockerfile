@@ -32,4 +32,4 @@ RUN echo 'abcd8765' | sudo -S pwd
 WORKDIR /home/safeuser
 
 # Install python tools
-RUN sudo apt-get install -y python3-pip python3-setuptools
+#RUN sudo apt-get install -y python3-pip python3-setuptools
