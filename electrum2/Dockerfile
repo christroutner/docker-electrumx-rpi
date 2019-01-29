@@ -10,8 +10,8 @@ WORKDIR /home/safeuser
 
 
 RUN git clone https://github.com/kyuupichan/electrumx.git
-RUN sudo python3 setup.py install
 WORKDIR /home/safeuser/electrumx
+RUN sudo python3 setup.py install
 RUN sudo mkdir /srv/db
 
 # These env vars should be set at run time.
