@@ -22,21 +22,15 @@ WORKDIR /home/safeuser
 
 # Install Python 3.6
 RUN sudo apt-get install -y build-essential libncurses5-dev libncursesw5-dev \
-libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev 
-#libexpat1-dev zlib1g-dev
-# liblzma-dev
+libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev \
+libexpat1-dev zlib1g-dev liblzma-dev libffi-dev
 #tk-dev
-
-
-
-
-
-
-
-
-
-
-
+RUN wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tar.xz
+RUN tar -xvf Python-3.7.2.tar.xz
+WORKDIR /home/safeuser/Python-3.7.2
+RUN ./configure
+RUN make
+RUN sudo make altinstall
 
 
 # Used to give Docker something to chew on, so it doesn't exit.
